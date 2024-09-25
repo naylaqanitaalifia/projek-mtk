@@ -69,12 +69,6 @@
             background-color: var(--bg-primary) !important;
             color: var(--text-primary) !important;
         }
-
-        .card-custom {
-            background-color: var(--bg-accent);
-            color: var(--text-primary);
-            text-align: justify;
-        }
     </style>
 
     <nav aria-label="breadcrumb">
@@ -112,7 +106,7 @@
                     <div class="form-group mb-4">
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="bunga" class="form-label">Interest rate</label>
+                                <label for="bunga" class="form-label">Interest rate %</label>
                                 <input type="text" name="bunga" class="form-control" value="0" required>
                             </div>
                             <div class="col-md-6">
@@ -165,7 +159,7 @@
                     if (!empty($modal) && !empty($bunga) && !empty($periode)) {
                         $hasil = $modal * $bunga * $periode; 
                         $modalAkhir = $modal + $hasil; 
-                        echo "<div class='card-custom border shadow-sm p-3'>The final amount from simple interest is <b>Rp" . number_format($modalAkhir, 2, ",", ".") . "</b> with interest amounting to <b>Rp" . number_format($hasil, 2, ",", ".") . "</b> </div>";
+                        echo "<div class='alert alert-success'>Initial capital : <b>Rp" . number_format($modalAkhir, 2, ",", ".") . "<br></b> Interest rate : <b>" . $bunga . "</b><br>" . "Time period : <b>" . $periode . "</b><br> Total : <b>Rp" . number_format($hasil, 2, ",", ".") . "</b> </div>";
                     } else {
                         echo "<div class='alert alert-danger'>Please enter valid values for capital, interest rate, and period!</div>";
                     }
